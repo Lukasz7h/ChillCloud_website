@@ -9,5 +9,5 @@ import { files } from './files.map';
 export class AppComponent {
   title = 'ChillCloud';
 
-  protected readonly background_cloud: string = files.background_cloud;
+
 }

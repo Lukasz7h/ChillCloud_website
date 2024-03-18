@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="card">
+			<h2 class="card-heading">
+				Zresetuj hasło
+			</h2>
+		<form class="form" #resetForm="ngForm" >
+			<div class="input">
+				<input type="password" class="input-field" name="password" ngModel required/>
+				<label class="input-label">Nowe hasło</label>
+			</div>
+			<div class="action">
+				<button class="action-button" (click)="resetFormAction(resetForm)">Resetuj hasło</button>
+			</div>
+		</form>
+	</div>
+</div>
