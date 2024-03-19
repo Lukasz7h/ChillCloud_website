@@ -24,9 +24,11 @@ export class ResetResolver implements Resolve<boolean> {
     return this.httpClient.post<any>('https://chillcloudserver-production.up.railway.app/reset', { token }).pipe(
       take(1),
       switchMap((response: any) => {
+        console.log(response)
         if (!response.can) {
           this.router.navigate(['/']);
         }
+
         return of(response.can);
       })
     );
