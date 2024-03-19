@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { files } from '../files.map';
+
 import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +18,14 @@ export class HomeComponent {
   downloadApp()
   {
     this.httpClient.get('https://chillcloudserver-production.up.railway.app/download', {headers: {'Content-Type': 'application/zip'}, responseType: 'blob' })
-    .subscribe(response => {
+    .subscribe((response: Blob) => {
       this.saveFile(response);
     });
   }
 
   saveFile(response: Blob) {
     const blob = new Blob([response], { type: 'application/zip' });
-    const url = window.URL.createObjectURL(blob);
-    window.open(url);
+    saveAs(blob, 'ChillCloud.zip');
   }
 
 }
