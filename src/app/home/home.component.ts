@@ -15,7 +15,7 @@ export class HomeComponent {
 
   downloadApp()
   {
-    this.httpClient.get('https://chillcloudserver-production.up.railway.app/download')
+    this.httpClient.get('https://chillcloudserver-production.up.railway.app/download', {headers: {'Content-Type': 'application/zip'}, responseType: 'blob' })
     .subscribe();
   }
 
