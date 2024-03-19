@@ -16,7 +16,15 @@ export class HomeComponent {
   downloadApp()
   {
     this.httpClient.get('https://chillcloudserver-production.up.railway.app/download', {headers: {'Content-Type': 'application/zip'}, responseType: 'blob' })
-    .subscribe();
+    .subscribe(response => {
+      this.saveFile(response);
+    });
+  }
+
+  saveFile(response: Blob) {
+    const blob = new Blob([response], { type: 'application/zip' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
   }
 
 }
