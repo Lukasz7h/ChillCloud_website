@@ -3,7 +3,7 @@ $footer-height: 65px;
 main{
   display: flex;
   position: relative;
-  height: calc(100vh - $footer-height);
+  min-height: calc(100vh - $footer-height);
   justify-content: center;
   padding: 0 45px;
 
